@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	    <link rel="stylesheet" href="Project.css" >
+
+    <title>Code editor</title>
+  </head>
+  <body>
+	<header><div class="bg"><p id="head">
+		 Welcome to my Online Code Editor
+		</p>
+		<select name="background-color" id="background" onchange="changeColor(this)">
+			<option value="#454545">Default</option>
+			<option value="#31f1f7">Sky Blue</option>
+			<option value="#43f024">Green</option>
+			<option value="#f7315c">Pink</option>
+		</select></div>
+	</header><hr>
+	<main>
+<div class=" container"> 
+	<div class="left">
+		<label>HTML</label>
+		<textarea id="html-code" onkeyup="run()"></textarea>
+
+		<label>CSS</label>
+		<textarea id="css-code" onkeyup="run()"></textarea>
+
+		<label>JAVA SCRIPT</label>
+		<textarea id="js-code" onkeyup="run()"></textarea>
+
+	</div>
+	<div class="right">
+		<iframe id="output"></iframe>
+	</div>
+
+
+</div>
+<script>
+	function run(){
+		let htmlCode= document.getElementById("html-code").value;
+		let cssCode= document.getElementById("css-code").value;
+		let jsCode= document.getElementById("js-code").value;
+		let outputCode= document.getElementById("output");
+
+		output.contentDocument.body.innerHTML= htmlCode+"<style>"+cssCode+"</style>";
+		output.contentWindow.eval(jsCode);
+
+}
+</script>
+	</main><hr>
+	<footer>
+		<h4> Contact Us: </h4> 
+		<pre> No. :+91 99xxxxxxxx
+  Email:abc@gaiml.com
+		</pre>
+	</footer>
+
+
+  </body>
+	<script>
+	function changeColor(getColor)
+	{
+	let bg= document.querySelector('.bg');
+	let selectColor = getColor.value;
+	bg.style.background= selectColor;
+	}
+	</script>
+</html>
